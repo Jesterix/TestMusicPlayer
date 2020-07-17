@@ -17,10 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if #available(iOS 13, *) {
         } else {
-            let vc = UIViewController()
-            vc.view.backgroundColor = .white
             let navigationController = UINavigationController(
-                rootViewController: vc)
+                rootViewController: SearchPageController())
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.rootViewController = navigationController
             window?.makeKeyAndVisible()

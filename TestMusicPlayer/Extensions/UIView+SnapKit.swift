@@ -3,7 +3,11 @@ import SnapKit
 
 extension UIView {
     var safeArea: UILayoutGuide {
-        return self.safeAreaLayoutGuide
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide
+        } else {
+            return self.readableContentGuide
+        }
     }
 }
 
