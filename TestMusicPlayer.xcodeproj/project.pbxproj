@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		44C6D41C24C1A17B00DE05BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D41B24C1A17B00DE05BA /* AppDelegate.swift */; };
 		44C6D41E24C1A17B00DE05BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D41D24C1A17B00DE05BA /* SceneDelegate.swift */; };
-		44C6D42024C1A17B00DE05BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D41F24C1A17B00DE05BA /* ViewController.swift */; };
-		44C6D42324C1A17B00DE05BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44C6D42124C1A17B00DE05BA /* Main.storyboard */; };
 		44C6D42524C1A18B00DE05BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44C6D42424C1A18B00DE05BA /* Assets.xcassets */; };
 		44C6D42824C1A18B00DE05BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44C6D42624C1A18B00DE05BA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,8 +17,6 @@
 		44C6D41824C1A17A00DE05BA /* TestMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44C6D41B24C1A17B00DE05BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44C6D41D24C1A17B00DE05BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		44C6D41F24C1A17B00DE05BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		44C6D42224C1A17B00DE05BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44C6D42424C1A18B00DE05BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44C6D42724C1A18B00DE05BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44C6D42924C1A18B00DE05BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,8 +54,6 @@
 			children = (
 				44C6D41B24C1A17B00DE05BA /* AppDelegate.swift */,
 				44C6D41D24C1A17B00DE05BA /* SceneDelegate.swift */,
-				44C6D41F24C1A17B00DE05BA /* ViewController.swift */,
-				44C6D42124C1A17B00DE05BA /* Main.storyboard */,
 				44C6D42424C1A18B00DE05BA /* Assets.xcassets */,
 				44C6D42624C1A18B00DE05BA /* LaunchScreen.storyboard */,
 				44C6D42924C1A18B00DE05BA /* Info.plist */,
@@ -127,7 +121,6 @@
 			files = (
 				44C6D42824C1A18B00DE05BA /* LaunchScreen.storyboard in Resources */,
 				44C6D42524C1A18B00DE05BA /* Assets.xcassets in Resources */,
-				44C6D42324C1A17B00DE05BA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +131,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44C6D42024C1A17B00DE05BA /* ViewController.swift in Sources */,
 				44C6D41C24C1A17B00DE05BA /* AppDelegate.swift in Sources */,
 				44C6D41E24C1A17B00DE05BA /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +139,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		44C6D42124C1A17B00DE05BA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				44C6D42224C1A17B00DE05BA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		44C6D42624C1A18B00DE05BA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,6 +271,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBXSN34678;
 				INFOPLIST_FILE = TestMusicPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,7 +279,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jesterix.TestMusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,6 +290,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UBXSN34678;
 				INFOPLIST_FILE = TestMusicPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +298,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jesterix.TestMusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
