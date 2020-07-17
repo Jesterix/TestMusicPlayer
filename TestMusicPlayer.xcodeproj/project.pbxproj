@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,10 @@
 		44C6D41E24C1A17B00DE05BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D41D24C1A17B00DE05BA /* SceneDelegate.swift */; };
 		44C6D42524C1A18B00DE05BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44C6D42424C1A18B00DE05BA /* Assets.xcassets */; };
 		44C6D42824C1A18B00DE05BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44C6D42624C1A18B00DE05BA /* LaunchScreen.storyboard */; };
+		44C6D43024C1A4EF00DE05BA /* UIView+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D42F24C1A4EF00DE05BA /* UIView+SnapKit.swift */; };
+		44C6D43424C1A53700DE05BA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44C6D43324C1A53700DE05BA /* SnapKit */; };
+		44C6D43724C1A5A700DE05BA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 44C6D43624C1A5A700DE05BA /* Alamofire */; };
+		44C6D43A24C1A63100DE05BA /* Bond in Frameworks */ = {isa = PBXBuildFile; productRef = 44C6D43924C1A63100DE05BA /* Bond */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,7 @@
 		44C6D42424C1A18B00DE05BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44C6D42724C1A18B00DE05BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44C6D42924C1A18B00DE05BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44C6D42F24C1A4EF00DE05BA /* UIView+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SnapKit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +32,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44C6D43424C1A53700DE05BA /* SnapKit in Frameworks */,
+				44C6D43A24C1A63100DE05BA /* Bond in Frameworks */,
+				44C6D43724C1A5A700DE05BA /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,11 +62,20 @@
 			children = (
 				44C6D41B24C1A17B00DE05BA /* AppDelegate.swift */,
 				44C6D41D24C1A17B00DE05BA /* SceneDelegate.swift */,
+				44C6D43124C1A50000DE05BA /* Extensions */,
 				44C6D42424C1A18B00DE05BA /* Assets.xcassets */,
 				44C6D42624C1A18B00DE05BA /* LaunchScreen.storyboard */,
 				44C6D42924C1A18B00DE05BA /* Info.plist */,
 			);
 			path = TestMusicPlayer;
+			sourceTree = "<group>";
+		};
+		44C6D43124C1A50000DE05BA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				44C6D42F24C1A4EF00DE05BA /* UIView+SnapKit.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +94,11 @@
 			dependencies = (
 			);
 			name = TestMusicPlayer;
+			packageProductDependencies = (
+				44C6D43324C1A53700DE05BA /* SnapKit */,
+				44C6D43624C1A5A700DE05BA /* Alamofire */,
+				44C6D43924C1A63100DE05BA /* Bond */,
+			);
 			productName = TestMusicPlayer;
 			productReference = 44C6D41824C1A17A00DE05BA /* TestMusicPlayer.app */;
 			productType = "com.apple.product-type.application";
@@ -105,6 +127,11 @@
 				Base,
 			);
 			mainGroup = 44C6D40F24C1A17A00DE05BA;
+			packageReferences = (
+				44C6D43224C1A53700DE05BA /* XCRemoteSwiftPackageReference "SnapKit" */,
+				44C6D43524C1A5A700DE05BA /* XCRemoteSwiftPackageReference "Alamofire" */,
+				44C6D43824C1A63100DE05BA /* XCRemoteSwiftPackageReference "Bond" */,
+			);
 			productRefGroup = 44C6D41924C1A17A00DE05BA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -132,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44C6D41C24C1A17B00DE05BA /* AppDelegate.swift in Sources */,
+				44C6D43024C1A4EF00DE05BA /* UIView+SnapKit.swift in Sources */,
 				44C6D41E24C1A17B00DE05BA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +352,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		44C6D43224C1A53700DE05BA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		44C6D43524C1A5A700DE05BA /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.1;
+			};
+		};
+		44C6D43824C1A63100DE05BA /* XCRemoteSwiftPackageReference "Bond" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DeclarativeHub/Bond";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		44C6D43324C1A53700DE05BA /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44C6D43224C1A53700DE05BA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		44C6D43624C1A5A700DE05BA /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44C6D43524C1A5A700DE05BA /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		44C6D43924C1A63100DE05BA /* Bond */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44C6D43824C1A63100DE05BA /* XCRemoteSwiftPackageReference "Bond" */;
+			productName = Bond;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44C6D41024C1A17A00DE05BA /* Project object */;
 }
