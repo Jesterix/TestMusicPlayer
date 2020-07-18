@@ -78,8 +78,9 @@
 			children = (
 				44C6D41B24C1A17B00DE05BA /* AppDelegate.swift */,
 				44C6D41D24C1A17B00DE05BA /* SceneDelegate.swift */,
-				44C6D44B24C2F8E600DE05BA /* Network */,
 				44C6D44124C1AA5300DE05BA /* Search */,
+				44C6D44B24C2F8E600DE05BA /* Network */,
+				44C6D44A24C2F87B00DE05BA /* Models */,
 				44C6D43124C1A50000DE05BA /* Extensions */,
 				44C6D42424C1A18B00DE05BA /* Assets.xcassets */,
 				44C6D42624C1A18B00DE05BA /* LaunchScreen.storyboard */,
@@ -100,7 +101,6 @@
 		44C6D44124C1AA5300DE05BA /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				44C6D44A24C2F87B00DE05BA /* Models */,
 				44C6D43B24C1A6AC00DE05BA /* SearchPageController.swift */,
 				44C6D44C24C2F98F00DE05BA /* SearchCell.swift */,
 				44C6D43D24C1A7CE00DE05BA /* SearchView.swift */,
