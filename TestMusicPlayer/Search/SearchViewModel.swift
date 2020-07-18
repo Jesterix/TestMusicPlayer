@@ -24,8 +24,13 @@ final class SearchViewModel {
             if let searchResult = result.value {
                 if searchResult.results.count == 0 {
                     self.items.value = [SearchItem(
-                        artistName: "No tracks found", trackName: "")]
+                        artistName: "No tracks found",
+                        trackName: "",
+                        artworkPath: "",
+                        previewUrl: "",
+                        albumName: "")]
                 } else {
+                    print(searchResult.results)
                     self.items.value = searchResult.results
                 }
             }

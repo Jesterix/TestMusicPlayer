@@ -14,7 +14,7 @@ final class DataManager {
         for string: String,
         _ completion: @escaping (DataResponse<SearchResult, AFError>) -> Void
     ) {
-        let parameters = ["term": string]
+        let parameters = ["term": string, "entity": "song"]
 
         AF.request(searchURL, parameters: parameters)
             .responseDecodable(of: SearchResult.self) { response in

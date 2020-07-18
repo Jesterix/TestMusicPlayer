@@ -9,4 +9,13 @@
 struct SearchItem: Codable {
     let artistName: String
     let trackName: String
+    let artworkPath: String
+    let previewUrl: String
+    let albumName: String
+
+    enum CodingKeys: String, CodingKey {
+        case artistName, trackName, previewUrl
+        case artworkPath = "artworkUrl100"
+        case albumName = "collectionName"
+    }
 }
