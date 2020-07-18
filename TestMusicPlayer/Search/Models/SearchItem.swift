@@ -18,4 +18,13 @@ struct SearchItem: Codable {
         case artworkPath = "artworkUrl100"
         case albumName = "collectionName"
     }
+
+    static func empty() -> SearchItem {
+        return SearchItem(
+            artistName: "No tracks found",
+            trackName: "",
+            artworkPath: "",
+            previewUrl: "",
+            albumName: "")
+    }
 }
