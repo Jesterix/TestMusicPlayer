@@ -11,16 +11,6 @@ import UIKit
 final class SearchPageController: UIViewController {
     private var searchView: SearchView!
     private var viewModel = SearchViewModel(dataManager: DataManager())
-//    private let reuseID = "hotelCell"
-
-//    init(viewModel: HotelsViewModel) {
-//        self.viewModel = viewModel
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
 
     override func loadView() {
         searchView = SearchView()
@@ -30,13 +20,12 @@ final class SearchPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         searchView.tableView.dataSource = self
         searchView.tableView.delegate = self
-//        mainView.tableView.register(
-//            HotelCell.self,
-//            forCellReuseIdentifier: reuseID)
-//
+        searchView.tableView.register(
+            SearchCell.self,
+            forCellReuseIdentifier: SearchCell.reuseID)
+
         bindViewModel()
         viewModel.search(for: "abba")
     }
@@ -66,31 +55,26 @@ extension SearchPageController: UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = viewModel.items.value[indexPath.row].trackName
-//        guard let cell = tableView.dequeueReusableCell(
-//            withIdentifier: reuseID) as? HotelCell else {
-//                fatalError("invalid cell type")
-//        }
-//
-//        cell.nameLabel.text = viewModel.hotels.value[indexPath.row].name
-//        cell.distanceLabel.text = "Distance from center: " + String(viewModel.hotels.value[indexPath.row].distance)
-//        cell.suitesAvailableLabel.text = "Available suites: \(viewModel.hotels.value[indexPath.row].suitesAvailability.count)"
-
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: SearchCell.reuseID) as? SearchCell else {
+                fatalError("invalid cell type")
+        }
+        cell.artistLabel.text = viewModel.items.value[indexPath.row].artistName
+        cell.trackLabel.text = viewModel.items.value[indexPath.row].trackName
         return cell
     }
 }
 
 extension SearchPageController: UITableViewDelegate {
-//    func tableView(
-//        _ tableView: UITableView,
-//        didSelectRowAt indexPath: IndexPath
-//    ) {
-//        tableView.deselectRow(at: indexPath, animated: false)
-//
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        tableView.deselectRow(at: indexPath, animated: false)
+
 //        self.navigationController?.pushViewController(
 //            DetailViewController(hotel: self.viewModel.hotels.value[indexPath.row]),
 //            animated: true)
-//    }
+    }
 }
 

@@ -22,6 +22,7 @@
 		44C6D44524C1FCC200DE05BA /* SearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D44424C1FCC200DE05BA /* SearchItem.swift */; };
 		44C6D44724C1FDAD00DE05BA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D44624C1FDAD00DE05BA /* DataManager.swift */; };
 		44C6D44924C2F86600DE05BA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D44824C2F86600DE05BA /* SearchResult.swift */; };
+		44C6D44D24C2F98F00DE05BA /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D44C24C2F98F00DE05BA /* SearchCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		44C6D44424C1FCC200DE05BA /* SearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItem.swift; sourceTree = "<group>"; };
 		44C6D44624C1FDAD00DE05BA /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		44C6D44824C2F86600DE05BA /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		44C6D44C24C2F98F00DE05BA /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				44C6D44A24C2F87B00DE05BA /* Models */,
 				44C6D43B24C1A6AC00DE05BA /* SearchPageController.swift */,
+				44C6D44C24C2F98F00DE05BA /* SearchCell.swift */,
 				44C6D43D24C1A7CE00DE05BA /* SearchView.swift */,
 				44C6D44224C1AF2200DE05BA /* SearchViewModel.swift */,
 			);
@@ -204,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44C6D44524C1FCC200DE05BA /* SearchItem.swift in Sources */,
+				44C6D44D24C2F98F00DE05BA /* SearchCell.swift in Sources */,
 				44C6D43E24C1A7CE00DE05BA /* SearchView.swift in Sources */,
 				44C6D44924C2F86600DE05BA /* SearchResult.swift in Sources */,
 				44C6D44324C1AF2200DE05BA /* SearchViewModel.swift in Sources */,
