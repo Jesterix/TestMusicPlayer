@@ -7,7 +7,6 @@
 //
 
 import Bond
-import Foundation
 
 final class SearchViewModel {
     let items = Observable<[SearchItem]>([])
@@ -20,16 +19,14 @@ final class SearchViewModel {
     }
 
     func search(for string: String) {
-
-            self.dataManager.searchRequest(for: string) { result in
-                if let searchResult = result.value {
-                    if searchResult.results.count == 0 {
-                        print("no items")
-                    } else {
-                        print(searchResult.results[0].trackName)
-                    }
+        self.dataManager.searchRequest(for: string) { result in
+            if let searchResult = result.value {
+                if searchResult.results.count == 0 {
+                    print("no items")
+                } else {
+                    print(searchResult.results[0].trackName)
                 }
             }
-
+        }
     }
 }
