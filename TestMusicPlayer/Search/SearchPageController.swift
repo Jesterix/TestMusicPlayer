@@ -29,19 +29,15 @@ final class SearchPageController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        mainView.tableView.dataSource = self
-//        mainView.tableView.delegate = self
+
+
+        searchView.tableView.dataSource = self
+        searchView.tableView.delegate = self
 //        mainView.tableView.register(
 //            HotelCell.self,
 //            forCellReuseIdentifier: reuseID)
 //
-//        bindViewModel()
-//        viewModel.fetch()
-//
-//        mainView.switchControl.addTarget(
-//            self,
-//            action: #selector(sortHotels),
-//            for: .valueChanged)
+        bindViewModel()
         viewModel.search(for: "abba")
     }
 
@@ -49,24 +45,13 @@ final class SearchPageController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
 
-//    private func bindViewModel() {
-//        viewModel.refreshing.bind(
-//            to: mainView.activityIndicator.reactive.isAnimating)
-//        viewModel.hotels.bind(to: self) { _, _ in
-//            self.mainView.tableView.reloadData()
-//        }
-//    }
-
-//    @objc private func sortHotels() {
-//        if mainView.switchControl.isOn {
-//            viewModel.hotels.value.sort
-//                { $0.suitesAvailability.count < $1.suitesAvailability.count }
-//        } else {
-//            viewModel.hotels.value.sort
-//                { $0.distance < $1.distance }
-//        }
-//        mainView.tableView.reloadData()
-//    }
+    private func bindViewModel() {
+        viewModel.refreshing.bind(
+            to: searchView.activityIndicator.reactive.isAnimating)
+        viewModel.items.bind(to: self) { _, _ in
+            self.searchView.tableView.reloadData()
+        }
+    }
 }
 
 extension SearchPageController: UITableViewDataSource {
@@ -74,13 +59,15 @@ extension SearchPageController: UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        1
+        viewModel.items.value.count
     }
 
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = viewModel.items.value[indexPath.row].trackName
 //        guard let cell = tableView.dequeueReusableCell(
 //            withIdentifier: reuseID) as? HotelCell else {
 //                fatalError("invalid cell type")
@@ -90,7 +77,7 @@ extension SearchPageController: UITableViewDataSource {
 //        cell.distanceLabel.text = "Distance from center: " + String(viewModel.hotels.value[indexPath.row].distance)
 //        cell.suitesAvailableLabel.text = "Available suites: \(viewModel.hotels.value[indexPath.row].suitesAvailability.count)"
 
-        return UITableViewCell()
+        return cell
     }
 }
 

@@ -25,6 +25,7 @@ final class SearchViewModel {
                     print("no items")
                 } else {
                     print(searchResult.results[0].trackName)
+                    self.items.value = searchResult.results
                 }
             }
         }
