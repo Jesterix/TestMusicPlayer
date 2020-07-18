@@ -25,6 +25,9 @@ final class SearchPageController: UIViewController {
         searchView.tableView.register(
             SearchCell.self,
             forCellReuseIdentifier: SearchCell.reuseID)
+        searchView.searchTextField.delegate = self
+
+        hideKeyboardOnTap()
 
         bindViewModel()
         viewModel.search(for: "abba")
@@ -57,7 +60,7 @@ extension SearchPageController: UITableViewDataSource {
     ) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: SearchCell.reuseID) as? SearchCell else {
-                fatalError("invalid cell type")
+                return UITableViewCell()
         }
         cell.configure(with: viewModel.items.value[indexPath.row])
         return cell
@@ -74,6 +77,13 @@ extension SearchPageController: UITableViewDelegate {
 //        self.navigationController?.pushViewController(
 //            DetailViewController(hotel: self.viewModel.hotels.value[indexPath.row]),
 //            animated: true)
+    }
+}
+
+extension SearchPageController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
