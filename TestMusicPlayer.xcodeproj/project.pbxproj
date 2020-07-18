@@ -25,6 +25,7 @@
 		44C6D44D24C2F98F00DE05BA /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D44C24C2F98F00DE05BA /* SearchCell.swift */; };
 		44C6D44F24C32BF100DE05BA /* PlayerPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D44E24C32BF100DE05BA /* PlayerPageController.swift */; };
 		44C6D45124C32C9700DE05BA /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D45024C32C9700DE05BA /* PlayerView.swift */; };
+		44C6D45424C349FD00DE05BA /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D45324C349FD00DE05BA /* PlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		44C6D44C24C2F98F00DE05BA /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		44C6D44E24C32BF100DE05BA /* PlayerPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPageController.swift; sourceTree = "<group>"; };
 		44C6D45024C32C9700DE05BA /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		44C6D45324C349FD00DE05BA /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			children = (
 				44C6D45024C32C9700DE05BA /* PlayerView.swift */,
 				44C6D44E24C32BF100DE05BA /* PlayerPageController.swift */,
+				44C6D45324C349FD00DE05BA /* PlayerViewModel.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				44C6D43E24C1A7CE00DE05BA /* SearchView.swift in Sources */,
 				44C6D44924C2F86600DE05BA /* SearchResult.swift in Sources */,
 				44C6D44324C1AF2200DE05BA /* SearchViewModel.swift in Sources */,
+				44C6D45424C349FD00DE05BA /* PlayerViewModel.swift in Sources */,
 				44C6D44024C1A94F00DE05BA /* Extensions.swift in Sources */,
 				44C6D41C24C1A17B00DE05BA /* AppDelegate.swift in Sources */,
 				44C6D45124C32C9700DE05BA /* PlayerView.swift in Sources */,

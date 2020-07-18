@@ -74,7 +74,7 @@ extension SearchPageController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
 
         self.navigationController?.pushViewController(
-            PlayerPageController(),
+            PlayerPageController(searchItem: viewModel.items.value[indexPath.row]),
             animated: true)
     }
 }

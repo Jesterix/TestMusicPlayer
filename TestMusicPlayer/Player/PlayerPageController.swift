@@ -10,8 +10,17 @@ import UIKit
 
 final class PlayerPageController: UIViewController {
     private var playerView: PlayerView!
-//    private var viewModel = SearchViewModel()
+    private var viewModel = PlayerViewModel()
 
+    init(searchItem: SearchItem) {
+        super.init(nibName: nil, bundle: nil)
+        viewModel.item = searchItem
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         playerView = PlayerView()
         self.view = playerView
@@ -20,7 +29,9 @@ final class PlayerPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        playerView.setup(with: viewModel.item)
         bindViewModel()
+        viewModel.fetch()
     }
 
     override func viewWillAppear(_ animated: Bool) {

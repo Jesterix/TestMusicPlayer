@@ -10,13 +10,13 @@ import UIKit
 
 final class PlayerView: UIView {
     var albumImageView: UIImageView!
-    var artistNameLabel: UILabel!
-    var trackNameLabel: UILabel!
-    var albumNameLabel: UILabel!
+    private var artistNameLabel: UILabel!
+    private var trackNameLabel: UILabel!
+    private var albumNameLabel: UILabel!
     var playButton: UIButton!
-    var startTimeLabel: UILabel!
+    private var startTimeLabel: UILabel!
     var slider: UISlider!
-    var endTimeLabel: UILabel!
+    private var endTimeLabel: UILabel!
 
     var activityIndicator: UIActivityIndicatorView!
 
@@ -107,6 +107,12 @@ final class PlayerView: UIView {
         } else {
             activityIndicator.style = UIActivityIndicatorView.Style.gray
         }
+    }
+
+    func setup(with model: SearchItem) {
+        artistNameLabel.text = model.artistName
+        trackNameLabel.text = model.trackName
+        albumNameLabel.text = model.albumName
     }
 }
 
