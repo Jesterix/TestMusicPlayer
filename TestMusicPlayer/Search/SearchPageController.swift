@@ -10,7 +10,7 @@ import UIKit
 
 final class SearchPageController: UIViewController {
     private var searchView: SearchView!
-    private var viewModel = SearchViewModel(dataManager: DataManager())
+    private var viewModel = SearchViewModel()
 
     override func loadView() {
         searchView = SearchView()
@@ -73,9 +73,9 @@ extension SearchPageController: UITableViewDelegate {
     ) {
         tableView.deselectRow(at: indexPath, animated: false)
 
-//        self.navigationController?.pushViewController(
-//            DetailViewController(hotel: self.viewModel.hotels.value[indexPath.row]),
-//            animated: true)
+        self.navigationController?.pushViewController(
+            PlayerPageController(),
+            animated: true)
     }
 }
 

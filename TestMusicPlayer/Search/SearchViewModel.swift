@@ -13,10 +13,7 @@ final class SearchViewModel {
     let error = Observable<Error?>(nil)
     let refreshing = Observable<Bool>(false)
 
-    private let dataManager: DataManager
-    init(dataManager: DataManager) {
-        self.dataManager = dataManager
-    }
+    private let dataManager: DataManager = DataManager()
 
     func search(for string: String) {
         items.value = []
