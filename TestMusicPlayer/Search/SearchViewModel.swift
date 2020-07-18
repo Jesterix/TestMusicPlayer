@@ -19,12 +19,13 @@ final class SearchViewModel {
     }
 
     func search(for string: String) {
+        items.value = []
         self.dataManager.searchRequest(for: string) { result in
             if let searchResult = result.value {
                 if searchResult.results.count == 0 {
-                    print("no items")
+                    self.items.value = [SearchItem(
+                        artistName: "No tracks found", trackName: "")]
                 } else {
-                    print(searchResult.results[0].trackName)
                     self.items.value = searchResult.results
                 }
             }

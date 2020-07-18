@@ -30,7 +30,6 @@ final class SearchPageController: UIViewController {
         hideKeyboardOnTap()
 
         bindViewModel()
-        viewModel.search(for: "abba")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +83,17 @@ extension SearchPageController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let text = textField.text else {
+            return
+        }
+        if text.count >= 3 {
+            viewModel.search(for: text)
+        } else {
+            viewModel.items.value = []
+        }
     }
 }
 
