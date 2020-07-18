@@ -10,7 +10,7 @@ import UIKit
 
 final class SearchPageController: UIViewController {
     private var searchView: SearchView!
-//    private var viewModel: HotelsViewModel
+    private var viewModel = SearchViewModel(dataManager: DataManager())
 //    private let reuseID = "hotelCell"
 
 //    init(viewModel: HotelsViewModel) {
@@ -42,6 +42,7 @@ final class SearchPageController: UIViewController {
 //            self,
 //            action: #selector(sortHotels),
 //            for: .valueChanged)
+        viewModel.search(for: "abba")
     }
 
     override func viewWillAppear(_ animated: Bool) {
