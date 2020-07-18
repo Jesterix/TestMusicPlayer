@@ -47,4 +47,9 @@ class SearchCell: UITableViewCell {
         artistLabel.font = .systemFont(ofSize: 17)
         trackLabel.font = .systemFont(ofSize: 13)
     }
+
+    func configure(with model: SearchItem) {
+        artistLabel.text = model.artistName
+        trackLabel.text = model.trackName
+    }
 }

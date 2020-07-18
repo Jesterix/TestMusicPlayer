@@ -59,8 +59,7 @@ extension SearchPageController: UITableViewDataSource {
             withIdentifier: SearchCell.reuseID) as? SearchCell else {
                 fatalError("invalid cell type")
         }
-        cell.artistLabel.text = viewModel.items.value[indexPath.row].artistName
-        cell.trackLabel.text = viewModel.items.value[indexPath.row].trackName
+        cell.configure(with: viewModel.items.value[indexPath.row])
         return cell
     }
 }
