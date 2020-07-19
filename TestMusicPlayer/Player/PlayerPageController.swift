@@ -55,6 +55,9 @@ final class PlayerPageController: UIViewController {
         viewModel.currentTimePercent.bind(to: self) { _, _ in
             self.playerView.timeDidChange()
         }
+        viewModel.stopPlaying.bind(to: self) { _, _ in
+            self.playButtonTapped()
+        }
     }
 
     @objc func sliderDidChange() {
