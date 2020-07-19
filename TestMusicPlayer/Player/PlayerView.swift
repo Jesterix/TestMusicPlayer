@@ -19,6 +19,12 @@ final class PlayerView: UIView {
     var slider: UISlider!
     private var endTimeLabel: UILabel!
 
+    var isPlaying = false {
+        didSet {
+            playButtonTapped()
+        }
+    }
+
     var activityIndicator: UIActivityIndicatorView!
 
     init() {
@@ -104,7 +110,7 @@ final class PlayerView: UIView {
 
         startTimeLabel.font = .systemFont(ofSize: 10)
         endTimeLabel.font = .systemFont(ofSize: 10)
-        
+
         if #available(iOS 13.0, *) {
             activityIndicator.style = UIActivityIndicatorView.Style.medium
         } else {
@@ -120,6 +126,27 @@ final class PlayerView: UIView {
             return
         }
         albumImageView.af.setImage(withURL: url)
+    }
+
+    func setupSlider(with viewModel: PlayerViewModel) {
+        slider.maximumValue = viewModel.duration
+        slider.isContinuous = true
+    }
+
+    private func playButtonTapped() {
+        if isPlaying {
+            if #available(iOS 13.0, *) {
+                playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            } else {
+                playButton.setImage(UIImage(.pause), for: .normal)
+            }
+        } else {
+            if #available(iOS 13.0, *) {
+                playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            } else {
+                playButton.setImage(UIImage(.play), for: .normal)
+            }
+        }
     }
 }
 
