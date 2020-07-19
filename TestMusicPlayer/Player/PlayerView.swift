@@ -67,11 +67,13 @@ final class PlayerView: UIView {
         startTimeLabel = layout(UILabel(text: "startTimeLabel")) { make in
             make.centerY.equalTo(playButton)
             make.leading.equalTo(playButton.trailing).offset(5)
+            make.width.equalTo(30)
         }
 
         endTimeLabel = layout(UILabel(text: "endTimeLabel")) { make in
             make.centerY.equalTo(playButton)
             make.trailing.equalToSuperview().offset(-10)
+            make.width.equalTo(35)
         }
 
         slider = layout(UISlider()) { make in
@@ -110,6 +112,8 @@ final class PlayerView: UIView {
 
         startTimeLabel.font = .systemFont(ofSize: 10)
         endTimeLabel.font = .systemFont(ofSize: 10)
+        startTimeLabel.isHidden = true
+        endTimeLabel.isHidden = true
 
         if #available(iOS 13.0, *) {
             activityIndicator.style = UIActivityIndicatorView.Style.medium
@@ -129,6 +133,8 @@ final class PlayerView: UIView {
     }
 
     func setupSlider(with viewModel: PlayerViewModel) {
+        startTimeLabel.isHidden = false
+        endTimeLabel.isHidden = false
         slider.maximumValue = viewModel.duration
     }
 
@@ -146,6 +152,11 @@ final class PlayerView: UIView {
                 playButton.setImage(UIImage(.play), for: .normal)
             }
         }
+    }
+
+    func timeDidChange() {
+        startTimeLabel.text = .timeFormatted(from: slider.value)
+        endTimeLabel.text = "-" + .timeFormatted(from: slider.maximumValue - slider.value)
     }
 }
 

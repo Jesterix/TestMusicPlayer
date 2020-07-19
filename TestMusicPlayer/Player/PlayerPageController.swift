@@ -46,12 +46,16 @@ final class PlayerPageController: UIViewController {
     }
 
     private func bindViewModel() {
-        viewModel.player.bind(to: self) { _, _ in
-            if self.viewModel.isReadyToPlay {
+        viewModel.isReadyToPlay.bind(to: self) { _, _ in
+            print("bind")
+            if self.viewModel.isReadyToPlay.value {
                 self.playerView.setupSlider(with: self.viewModel)
             }
         }
         viewModel.currentTimePercent.bind(to: playerView.slider.reactive.value)
+        viewModel.currentTimePercent.bind(to: self) { _, _ in
+            self.playerView.timeDidChange()
+        }
     }
 
     @objc func sliderDidChange() {

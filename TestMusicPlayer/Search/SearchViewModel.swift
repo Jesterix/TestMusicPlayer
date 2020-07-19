@@ -22,7 +22,6 @@ final class SearchViewModel {
                 if searchResult.results.count == 0 {
                     self.items.value = [SearchItem.empty()]
                 } else {
-                    print(searchResult.results)
                     self.items.value = searchResult.results
                 }
             }

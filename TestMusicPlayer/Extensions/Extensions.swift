@@ -57,3 +57,11 @@ extension UIImage {
         return nil
     }
 }
+
+extension String {
+    static func timeFormatted(from floatValue: Float) -> String {
+        let minutes = Int(floatValue) / 60 % 60
+        let seconds = Int(floatValue) % 60
+        return String(format:"%02d:%02d", minutes, seconds)
+    }
+}

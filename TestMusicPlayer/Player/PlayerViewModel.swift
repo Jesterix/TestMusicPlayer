@@ -19,6 +19,8 @@ final class PlayerViewModel {
     let player = Observable<AVPlayer?>(nil)
     private var playerItem: AVPlayerItem?
 
+    var currentTimePercent = Observable<Float>(0)
+
     var duration: Float {
         guard let playerItem = playerItem else {
             return 0
@@ -26,14 +28,8 @@ final class PlayerViewModel {
         let seconds: Float64 = CMTimeGetSeconds(playerItem.duration)
         return Float(seconds)
     }
-    var currentTimePercent = Observable<Float>(0)
 
-    var isReadyToPlay: Bool {
-        guard let item = playerItem, item.status == .readyToPlay else {
-            return false
-        }
-        return true
-    }
+    var isReadyToPlay = Observable<Bool>(false)
 
     private func setupPlayer() {
         guard let url = URL(string: item.previewUrl) else {
@@ -45,9 +41,14 @@ final class PlayerViewModel {
             forInterval: CMTime(
                 seconds: 0.1,
                 preferredTimescale: CMTimeScale(NSEC_PER_SEC)),
-            queue: DispatchQueue.main) { [unowned self] time in
+            queue: DispatchQueue.main) { [weak self] time in
+                guard let self = self, let item = self.playerItem, item.status == .readyToPlay else { return }
+
+                if !self.isReadyToPlay.value {
+                    self.isReadyToPlay.value = true
+                }
+
                 self.currentTimePercent.value = Float(CMTimeGetSeconds(time))
-                    / self.duration
         }
     }
 
