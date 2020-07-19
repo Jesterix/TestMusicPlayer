@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 final class PlayerView: UIView {
     var albumImageView: UIImageView!
@@ -32,8 +33,8 @@ final class PlayerView: UIView {
 
     private func layoutContent(in view: UIView) {
         albumImageView = layout(UIImageView()) { make in
-            make.top.leading.trailing.equalTo(safeArea)
-            make.height.equalTo(200)
+            make.top.leading.trailing.equalTo(safeArea).offset(5)
+            make.height.equalTo(100)
         }
 
         artistNameLabel = layout(UILabel(text: "artistNameLabel")) { make in
@@ -82,6 +83,8 @@ final class PlayerView: UIView {
     private func applyStyle() {
         backgroundColor = .white
 
+        albumImageView.contentMode = .scaleAspectFit
+
         artistNameLabel.font = .systemFont(ofSize: 13)
         trackNameLabel.font = .systemFont(ofSize: 15)
         albumNameLabel.font = .systemFont(ofSize: 11)
@@ -113,6 +116,10 @@ final class PlayerView: UIView {
         artistNameLabel.text = model.artistName
         trackNameLabel.text = model.trackName
         albumNameLabel.text = model.albumName
+        guard let url = URL(string: model.artworkPath) else {
+            return
+        }
+        albumImageView.af.setImage(withURL: url)
     }
 }
 

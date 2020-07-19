@@ -26,6 +26,7 @@
 		44C6D44F24C32BF100DE05BA /* PlayerPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D44E24C32BF100DE05BA /* PlayerPageController.swift */; };
 		44C6D45124C32C9700DE05BA /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D45024C32C9700DE05BA /* PlayerView.swift */; };
 		44C6D45424C349FD00DE05BA /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D45324C349FD00DE05BA /* PlayerViewModel.swift */; };
+		44C6D45724C3508B00DE05BA /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 44C6D45624C3508B00DE05BA /* AlamofireImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44C6D43424C1A53700DE05BA /* SnapKit in Frameworks */,
+				44C6D45724C3508B00DE05BA /* AlamofireImage in Frameworks */,
 				44C6D43A24C1A63100DE05BA /* Bond in Frameworks */,
 				44C6D43724C1A5A700DE05BA /* Alamofire in Frameworks */,
 			);
@@ -163,6 +165,7 @@
 				44C6D43324C1A53700DE05BA /* SnapKit */,
 				44C6D43624C1A5A700DE05BA /* Alamofire */,
 				44C6D43924C1A63100DE05BA /* Bond */,
+				44C6D45624C3508B00DE05BA /* AlamofireImage */,
 			);
 			productName = TestMusicPlayer;
 			productReference = 44C6D41824C1A17A00DE05BA /* TestMusicPlayer.app */;
@@ -196,6 +199,7 @@
 				44C6D43224C1A53700DE05BA /* XCRemoteSwiftPackageReference "SnapKit" */,
 				44C6D43524C1A5A700DE05BA /* XCRemoteSwiftPackageReference "Alamofire" */,
 				44C6D43824C1A63100DE05BA /* XCRemoteSwiftPackageReference "Bond" */,
+				44C6D45524C3508B00DE05BA /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = 44C6D41924C1A17A00DE05BA /* Products */;
 			projectDirPath = "";
@@ -454,6 +458,14 @@
 				minimumVersion = 7.7.1;
 			};
 		};
+		44C6D45524C3508B00DE05BA /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -471,6 +483,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 44C6D43824C1A63100DE05BA /* XCRemoteSwiftPackageReference "Bond" */;
 			productName = Bond;
+		};
+		44C6D45624C3508B00DE05BA /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44C6D45524C3508B00DE05BA /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
