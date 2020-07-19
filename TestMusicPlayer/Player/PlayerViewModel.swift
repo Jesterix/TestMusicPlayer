@@ -26,6 +26,7 @@ final class PlayerViewModel {
         let seconds: Float64 = CMTimeGetSeconds(playerItem.duration)
         return Float(seconds)
     }
+    var currentTimePercent = Observable<Float>(0)
 
     var isReadyToPlay: Bool {
         guard let item = playerItem, item.status == .readyToPlay else {
@@ -40,6 +41,9 @@ final class PlayerViewModel {
         }
         playerItem = AVPlayerItem(url: url)
         player.value = AVPlayer(playerItem: playerItem)
+        player.value?.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.1, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), queue: DispatchQueue.main) { [unowned self] time in
+            self.currentTimePercent.value = Float(CMTimeGetSeconds(time)) / self.duration
+        }
     }
 
     func play(at time: Float) {

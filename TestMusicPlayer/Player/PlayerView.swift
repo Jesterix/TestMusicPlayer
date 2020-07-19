@@ -130,7 +130,6 @@ final class PlayerView: UIView {
 
     func setupSlider(with viewModel: PlayerViewModel) {
         slider.maximumValue = viewModel.duration
-        slider.isContinuous = true
     }
 
     private func playButtonTapped() {
