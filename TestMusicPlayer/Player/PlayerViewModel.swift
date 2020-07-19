@@ -41,8 +41,13 @@ final class PlayerViewModel {
         }
         playerItem = AVPlayerItem(url: url)
         player.value = AVPlayer(playerItem: playerItem)
-        player.value?.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.1, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), queue: DispatchQueue.main) { [unowned self] time in
-            self.currentTimePercent.value = Float(CMTimeGetSeconds(time)) / self.duration
+        player.value?.addPeriodicTimeObserver(
+            forInterval: CMTime(
+                seconds: 0.1,
+                preferredTimescale: CMTimeScale(NSEC_PER_SEC)),
+            queue: DispatchQueue.main) { [unowned self] time in
+                self.currentTimePercent.value = Float(CMTimeGetSeconds(time))
+                    / self.duration
         }
     }
 
@@ -57,9 +62,5 @@ final class PlayerViewModel {
             player.play()
         }
     }
-
-//    let items = Observable<[SearchItem]>([])
-//    let error = Observable<Error?>(nil)
-//    let refreshing = Observable<Bool>(false)
 }
 

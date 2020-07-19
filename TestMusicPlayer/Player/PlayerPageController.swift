@@ -30,8 +30,14 @@ final class PlayerPageController: UIViewController {
         super.viewDidLoad()
 
         playerView.setup(with: viewModel.item)
-        playerView.slider.addTarget(self, action: #selector(sliderDidChange), for: .valueChanged)
-        playerView.playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        playerView.slider.addTarget(
+            self,
+            action: #selector(sliderDidChange),
+            for: .valueChanged)
+        playerView.playButton.addTarget(
+            self,
+            action: #selector(playButtonTapped),
+            for: .touchUpInside)
         bindViewModel()
     }
 
@@ -40,11 +46,6 @@ final class PlayerPageController: UIViewController {
     }
 
     private func bindViewModel() {
-//        viewModel.refreshing.bind(
-//            to: searchView.activityIndicator.reactive.isAnimating)
-//        viewModel.items.bind(to: self) { _, _ in
-//            self.searchView.tableView.reloadData()
-//        }
         viewModel.player.bind(to: self) { _, _ in
             if self.viewModel.isReadyToPlay {
                 self.playerView.setupSlider(with: self.viewModel)
