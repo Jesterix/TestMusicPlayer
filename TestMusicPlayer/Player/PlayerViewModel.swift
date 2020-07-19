@@ -42,6 +42,18 @@ final class PlayerViewModel {
         player.value = AVPlayer(playerItem: playerItem)
     }
 
+    func play(at time: Float) {
+        guard let player = player.value else { return }
+
+        let seconds : Int64 = Int64(time)
+        let targetTime:CMTime = CMTimeMake(value: seconds, timescale: 1)
+        player.seek(to: targetTime)
+        if player.rate == 0
+        {
+            player.play()
+        }
+    }
+
 //    let items = Observable<[SearchItem]>([])
 //    let error = Observable<Error?>(nil)
 //    let refreshing = Observable<Bool>(false)

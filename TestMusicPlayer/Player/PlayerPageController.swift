@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 final class PlayerPageController: UIViewController {
     private var playerView: PlayerView!
@@ -59,15 +58,8 @@ final class PlayerPageController: UIViewController {
 //    }
 
     @objc func sliderDidChange() {
-        let seconds : Int64 = Int64(playerView.slider.value)
-        let targetTime:CMTime = CMTimeMake(value: seconds, timescale: 1)
-
-        if let player = viewModel.player.value {
-            player.seek(to: targetTime)
-            if player.rate == 0
-            {
-                player.play()
-            }
+        if viewModel.player.value != nil {
+            viewModel.play(at: playerView.slider.value)
             playerView.isPlaying = true
         }
     }
