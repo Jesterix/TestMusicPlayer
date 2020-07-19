@@ -136,6 +136,7 @@ final class PlayerView: UIView {
         startTimeLabel.isHidden = false
         endTimeLabel.isHidden = false
         slider.maximumValue = viewModel.duration
+        timeDidChange()
     }
 
     private func playButtonTapped() {
