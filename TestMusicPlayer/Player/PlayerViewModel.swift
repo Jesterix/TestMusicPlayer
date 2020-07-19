@@ -16,44 +16,44 @@ final class PlayerViewModel {
         }
     }
 
-    let player = Observable<AVPlayer?>(nil)
-    private var playerItem: AVPlayerItem?
-
+    let observer = StatusObserver()
+    var player: AVPlayer?
     var currentTimePercent = Observable<Float>(0)
 
     var duration: Float {
-        guard let playerItem = playerItem else {
+        guard let player = player, let item = player.currentItem else {
             return 0
         }
-        let seconds: Float64 = CMTimeGetSeconds(playerItem.duration)
+        let seconds: Float64 = CMTimeGetSeconds(item.duration)
         return Float(seconds)
     }
-
-    var isReadyToPlay = Observable<Bool>(false)
 
     private func setupPlayer() {
         guard let url = URL(string: item.previewUrl) else {
             return
         }
-        playerItem = AVPlayerItem(url: url)
-        player.value = AVPlayer(playerItem: playerItem)
-        player.value?.addPeriodicTimeObserver(
+        let playerItem = AVPlayerItem(url: url)
+
+        playerItem.addObserver(
+            observer,
+            forKeyPath: #keyPath(AVPlayerItem.status),
+            options: [.old, .new],
+            context: &observer.playerItemContext)
+        player = AVPlayer(playerItem: playerItem)
+
+        player!.addPeriodicTimeObserver(
             forInterval: CMTime(
                 seconds: 0.1,
                 preferredTimescale: CMTimeScale(NSEC_PER_SEC)),
             queue: DispatchQueue.main) { [weak self] time in
-                guard let self = self, let item = self.playerItem, item.status == .readyToPlay else { return }
-
-                if !self.isReadyToPlay.value {
-                    self.isReadyToPlay.value = true
-                }
+                guard let self = self else { return }
 
                 self.currentTimePercent.value = Float(CMTimeGetSeconds(time))
         }
     }
 
     func play(at time: Float) {
-        guard let player = player.value else { return }
+        guard let player = player else { return }
 
         let seconds : Int64 = Int64(time)
         let targetTime:CMTime = CMTimeMake(value: seconds, timescale: 1)

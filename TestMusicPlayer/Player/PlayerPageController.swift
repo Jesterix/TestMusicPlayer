@@ -46,9 +46,8 @@ final class PlayerPageController: UIViewController {
     }
 
     private func bindViewModel() {
-        viewModel.isReadyToPlay.bind(to: self) { _, _ in
-            print("bind")
-            if self.viewModel.isReadyToPlay.value {
+        viewModel.observer.isReady.bind(to: self) { _, _ in
+            if self.viewModel.observer.isReady.value {
                 self.playerView.setupSlider(with: self.viewModel)
             }
         }
@@ -59,14 +58,14 @@ final class PlayerPageController: UIViewController {
     }
 
     @objc func sliderDidChange() {
-        if viewModel.player.value != nil {
+        if viewModel.player != nil {
             viewModel.play(at: playerView.slider.value)
             playerView.isPlaying = true
         }
     }
 
     @objc func playButtonTapped() {
-        guard let player = viewModel.player.value else {
+        guard let player = viewModel.player else {
             return
         }
         playerView.isPlaying.toggle()

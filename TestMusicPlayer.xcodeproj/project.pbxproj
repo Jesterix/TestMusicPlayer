@@ -27,6 +27,7 @@
 		44C6D45124C32C9700DE05BA /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D45024C32C9700DE05BA /* PlayerView.swift */; };
 		44C6D45424C349FD00DE05BA /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D45324C349FD00DE05BA /* PlayerViewModel.swift */; };
 		44C6D45724C3508B00DE05BA /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 44C6D45624C3508B00DE05BA /* AlamofireImage */; };
+		44C6D45924C4F4FC00DE05BA /* StatusObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C6D45824C4F4FB00DE05BA /* StatusObserver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		44C6D44E24C32BF100DE05BA /* PlayerPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPageController.swift; sourceTree = "<group>"; };
 		44C6D45024C32C9700DE05BA /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		44C6D45324C349FD00DE05BA /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		44C6D45824C4F4FB00DE05BA /* StatusObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusObserver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				44C6D45024C32C9700DE05BA /* PlayerView.swift */,
 				44C6D44E24C32BF100DE05BA /* PlayerPageController.swift */,
 				44C6D45324C349FD00DE05BA /* PlayerViewModel.swift */,
+				44C6D45824C4F4FB00DE05BA /* StatusObserver.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				44C6D43024C1A4EF00DE05BA /* UIView+SnapKit.swift in Sources */,
 				44C6D43C24C1A6AC00DE05BA /* SearchPageController.swift in Sources */,
 				44C6D44724C1FDAD00DE05BA /* DataManager.swift in Sources */,
+				44C6D45924C4F4FC00DE05BA /* StatusObserver.swift in Sources */,
 				44C6D41E24C1A17B00DE05BA /* SceneDelegate.swift in Sources */,
 				44C6D44F24C32BF100DE05BA /* PlayerPageController.swift in Sources */,
 			);
