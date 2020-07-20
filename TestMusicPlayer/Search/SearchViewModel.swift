@@ -15,7 +15,7 @@ final class SearchViewModel {
 
     private let dataManager: NetworkSearching = DataManager()
 
-    func search(for string: String) {
+    private func search(for string: String) {
         items.value = []
         self.dataManager.search(for: string) { result in
             if let searchResult = result.value {
@@ -25,6 +25,14 @@ final class SearchViewModel {
                     self.items.value = searchResult.results
                 }
             }
+        }
+    }
+
+    func prepareToSearch(text: String) {
+        if text.count >= 3 {
+            search(for: text)
+        } else {
+            items.value = []
         }
     }
 }

@@ -98,11 +98,7 @@ extension SearchPageController: UITextFieldDelegate {
                 in: stringRange,
                 with: string)
 
-            if updatedText.count >= 3 {
-                viewModel.search(for: updatedText)
-            } else {
-                viewModel.items.value = []
-            }
+            viewModel.prepareToSearch(text: updatedText)
             return true
         }
     }
@@ -111,11 +107,7 @@ extension SearchPageController: UITextFieldDelegate {
         guard let text = textField.text else {
             return
         }
-        if text.count >= 3 {
-            viewModel.search(for: text)
-        } else {
-            viewModel.items.value = []
-        }
+        viewModel.prepareToSearch(text: text)
     }
 }
 
