@@ -68,14 +68,7 @@ final class PlayerPageController: UIViewController {
     }
 
     @objc func playButtonTapped() {
-        guard let player = viewModel.player else {
-            return
-        }
         playerView.isPlaying.toggle()
-        if playerView.isPlaying {
-            player.play()
-        } else {
-            player.pause()
-        }
+        viewModel.playerShouldPlay(playerView.isPlaying)
     }
 }

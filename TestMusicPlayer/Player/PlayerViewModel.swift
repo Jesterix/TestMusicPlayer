@@ -67,5 +67,14 @@ final class PlayerViewModel {
             player.play()
         }
     }
+
+    func playerShouldPlay(_ play: Bool) {
+        guard let player = player else { return }
+        if play {
+            player.play()
+        } else {
+            player.pause()
+        }
+    }
 }
 
