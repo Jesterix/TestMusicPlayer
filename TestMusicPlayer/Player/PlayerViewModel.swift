@@ -21,7 +21,7 @@ final class PlayerViewModel {
     //Observable values
     let observer = StatusObserver()
     var currentTimePercent = Observable<Float>(0)
-    let stopPlaying = Observable<Bool>(false)
+    let trackDidEndPlaying = Observable<Bool>(false)
 
     var duration: Float {
         guard let player = player, let item = player.currentItem else {
@@ -53,7 +53,7 @@ final class PlayerViewModel {
 
                 self.currentTimePercent.value = Float(CMTimeGetSeconds(time))
                 if self.currentTimePercent.value >= self.duration {
-                    self.stopPlaying.value = true
+                    self.trackDidEndPlaying.value = true
                 }
         }
     }

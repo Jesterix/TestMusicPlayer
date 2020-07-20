@@ -19,7 +19,7 @@ final class PlayerView: UIView {
     var slider: UISlider!
     private var endTimeLabel: UILabel!
 
-    var isPlaying = false {
+    var isPlaying = true {
         didSet {
             playButtonTapped()
         }
