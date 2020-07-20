@@ -61,10 +61,8 @@ final class PlayerPageController: UIViewController {
     }
 
     @objc func sliderDidChange() {
-        if viewModel.player != nil {
-            viewModel.play(at: playerView.slider.value)
-            playerView.isPlaying = true
-        }
+        viewModel.play(at: playerView.slider.value)
+        playerView.isPlaying = true
     }
 
     @objc func playButtonTapped() {

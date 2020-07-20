@@ -10,14 +10,16 @@ import Bond
 import AVFoundation
 
 final class PlayerViewModel {
+    //Data
     var item: SearchItem = SearchItem.empty() {
         didSet {
             setupPlayer()
         }
     }
-
+    //Player
+    private var player: AVPlayer?
+    //Observable values
     let observer = StatusObserver()
-    var player: AVPlayer?
     var currentTimePercent = Observable<Float>(0)
     let stopPlaying = Observable<Bool>(false)
 

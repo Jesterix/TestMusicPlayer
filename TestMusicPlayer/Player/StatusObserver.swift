@@ -9,7 +9,7 @@
 import Bond
 import AVFoundation
 
-class StatusObserver: NSObject {
+final class StatusObserver: NSObject {
     var isReady = Observable<Bool>(false)
     var playerItemContext = 0
 

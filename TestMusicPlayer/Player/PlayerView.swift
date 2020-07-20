@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 
 final class PlayerView: UIView {
-    var albumImageView: UIImageView!
+    private var albumImageView: UIImageView!
     private var artistNameLabel: UILabel!
     private var trackNameLabel: UILabel!
     private var albumNameLabel: UILabel!
@@ -24,8 +24,6 @@ final class PlayerView: UIView {
             playButtonTapped()
         }
     }
-
-    var activityIndicator: UIActivityIndicatorView!
 
     init() {
         super.init(frame: .zero)
@@ -82,10 +80,6 @@ final class PlayerView: UIView {
             make.leading.equalTo(startTimeLabel.trailing).offset(5)
             make.trailing.equalTo(endTimeLabel.leading).offset(-5)
         }
-
-        activityIndicator = layout(UIActivityIndicatorView()) { make in
-            make.center.equalToSuperview()
-        }
     }
 
     private func applyStyle() {
@@ -114,12 +108,6 @@ final class PlayerView: UIView {
         endTimeLabel.font = .systemFont(ofSize: 10)
         startTimeLabel.isHidden = true
         endTimeLabel.isHidden = true
-
-        if #available(iOS 13.0, *) {
-            activityIndicator.style = UIActivityIndicatorView.Style.medium
-        } else {
-            activityIndicator.style = UIActivityIndicatorView.Style.gray
-        }
     }
 
     func setup(with model: SearchItem) {
