@@ -56,10 +56,18 @@ final class PlayerView: UIView {
             make.centerX.equalToSuperview()
         }
 
-        playButton = layout(UIButton(type: .system)) { make in
-            make.top.equalTo(albumNameLabel.bottom).offset(5)
-            make.leading.equalToSuperview().offset(10)
-            make.height.width.equalTo(30)
+        if #available(iOS 13.0, *) {
+            playButton = layout(UIButton(type: .system)) { make in
+                make.top.equalTo(albumNameLabel.bottom).offset(5)
+                make.leading.equalToSuperview().offset(10)
+                make.height.width.equalTo(30)
+            }
+        } else {
+            playButton = layout(UIButton(type: .system)) { make in
+                make.top.equalTo(albumNameLabel.bottom).offset(5)
+                make.leading.equalToSuperview().offset(10)
+                make.height.width.equalTo(15)
+            }
         }
 
         startTimeLabel = layout(UILabel(text: "startTimeLabel")) { make in
@@ -132,13 +140,17 @@ final class PlayerView: UIView {
             if #available(iOS 13.0, *) {
                 playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             } else {
-                playButton.setImage(UIImage(.pause), for: .normal)
+                DispatchQueue.main.async {
+                    self.playButton.setImage(UIImage(.pause), for: .normal)
+                }
             }
         } else {
             if #available(iOS 13.0, *) {
                 playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             } else {
-                playButton.setImage(UIImage(.play), for: .normal)
+                DispatchQueue.main.async {
+                    self.playButton.setImage(UIImage(.play), for: .normal)
+                }
             }
         }
     }
