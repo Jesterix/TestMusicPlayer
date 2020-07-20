@@ -85,6 +85,28 @@ extension SearchPageController: UITextFieldDelegate {
         return true
     }
 
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        if #available(iOS 13.0, *) {
+            return true
+        } else {
+
+            let currentText = textField.text ?? ""
+            guard let stringRange = Range(range, in: currentText)
+                else { return false }
+            let updatedText = currentText.replacingCharacters(
+                in: stringRange,
+                with: string)
+
+            if updatedText.count >= 3 {
+                viewModel.search(for: updatedText)
+            } else {
+                viewModel.items.value = []
+            }
+            return true
+        }
+    }
+
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let text = textField.text else {
             return
