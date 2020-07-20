@@ -13,11 +13,11 @@ final class SearchViewModel {
     let error = Observable<Error?>(nil)
     let refreshing = Observable<Bool>(false)
 
-    private let dataManager: DataManager = DataManager()
+    private let dataManager: NetworkSearching = DataManager()
 
     func search(for string: String) {
         items.value = []
-        self.dataManager.searchRequest(for: string) { result in
+        self.dataManager.search(for: string) { result in
             if let searchResult = result.value {
                 if searchResult.results.count == 0 {
                     self.items.value = [SearchItem.empty()]

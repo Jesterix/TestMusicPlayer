@@ -7,10 +7,16 @@
 //
 import Alamofire
 
-final class DataManager {
+protocol NetworkSearching {
+    func search(
+        for string: String,
+        _ completion: @escaping (DataResponse<SearchResult, AFError>) -> Void)
+}
+
+final class DataManager: NetworkSearching {
     private var searchURL = "https://itunes.apple.com/search"
 
-    func searchRequest(
+    func search(
         for string: String,
         _ completion: @escaping (DataResponse<SearchResult, AFError>) -> Void
     ) {
